@@ -15,7 +15,11 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //
+
+        $albumes = Album::all();
+
+       // return($albumes);
+        return view('albumes.index',['albumes'=>Album::all()]);
     }
 
     /**
@@ -25,7 +29,8 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        //
+        $album = new Album();
+        return view('albumes.create',['album'=>$album]);
     }
 
     /**
@@ -36,7 +41,11 @@ class AlbumController extends Controller
      */
     public function store(StoreAlbumRequest $request)
     {
-        //
+        $album = new Album($request->validated());
+
+        $album->save();
+
+        return redirect()->route('albumes.index')->with('success','Album creado correctamente');
     }
 
     /**
@@ -47,7 +56,7 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        //
+        return view('albumes.show',['album'=>$album]);
     }
 
     /**
@@ -58,7 +67,7 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        //
+        return view('albumes.edit',['album'=>$album]);
     }
 
     /**
@@ -70,7 +79,11 @@ class AlbumController extends Controller
      */
     public function update(UpdateAlbumRequest $request, Album $album)
     {
-        //
+        $album->fill($request->validated());
+
+        $album->save();
+
+        return redirect()->route('albumes.index')->with('success','Albumes editado correctamente');
     }
 
     /**
@@ -81,6 +94,8 @@ class AlbumController extends Controller
      */
     public function destroy(Album $album)
     {
-        //
+        $album->delete();
+
+        return redirect()->route('albumes.index')->with('success','Albumes borrado correctamente');
     }
 }

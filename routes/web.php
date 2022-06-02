@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\ArtistaController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +22,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
+
+
 require __DIR__.'/auth.php';
+
+Route::get('albumes',[AlbumController::class,'index'])->name('albumes.index');
+
+Route::get('artistas',[ArtistaController::class,'index']);
+
+Route::resource('/albumes',AlbumController::class);

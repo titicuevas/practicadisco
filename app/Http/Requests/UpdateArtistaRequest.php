@@ -13,7 +13,7 @@ class UpdateArtistaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateArtistaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre'=>'required|string',
+
         ];
     }
 }

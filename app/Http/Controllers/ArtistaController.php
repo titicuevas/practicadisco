@@ -15,7 +15,8 @@ class ArtistaController extends Controller
      */
     public function index()
     {
-        //
+        
+        return 'artistas.index';
     }
 
     /**

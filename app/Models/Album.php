@@ -8,10 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Album extends Model
 {
 
-    protected $table = 'albumes';
 
 
     use HasFactory;
+
+    protected $table = 'albumes';
+
+    protected $fillable =
+    [
+        'titulo',
+        'anyo',
+    ];
+
 
 
     public function temas() {
