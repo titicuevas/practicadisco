@@ -18,8 +18,8 @@
   @enderror
   <br>
   <label for="anyo">Año</label>
-<input type="numeric" name="anyo" id="anyo" placeholder="Escriba el año del titulo"  value="{{old('anyo',$album->anyo)}}">
-@error('anyo')
+<input type="numeric" name="anyo" id="anyo" placeholder="Escriba el año del titulo"  value="{{old('anyo',$album->nombre)}}">
+@error('nombre')
     <p class="text-red-500 text-sm mt-1">
         {{ $message }}
     </p>

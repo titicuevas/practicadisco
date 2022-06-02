@@ -15,7 +15,7 @@ class TemaController extends Controller
      */
     public function index()
     {
-        //
+        return view('temas.index',['temas'=>Tema::all()]);
     }
 
     /**
@@ -25,7 +25,10 @@ class TemaController extends Controller
      */
     public function create()
     {
-        //
+        $tema = new Tema();
+
+        return view('temas.create',['tema'=>$tema]);
+
     }
 
     /**
